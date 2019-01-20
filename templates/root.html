@@ -1,0 +1,24 @@
+<div class="app t-c" style="max-width: 500px;" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-hide="id" md-colors="{ background: 'grey-A100' }">
+    <h2 class="md-headline">Домены зоне om.ua</h2>
+    <div class="m-r-xl m-l-xl">
+        <p class="t-lg m-sm">120 грн/год</p>
+        <p class="t-lg m-sm">Доступны короткие имена</p>
+    </div>
+    <div class="m-t-md">
+        <md-button href="mailto:support@om.ua" class="md-raised md-primary">
+            Заказать
+        </md-button>
+    </div>
+</div>
+
+<div class="app" layout="row" layout-align="center" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-show="loading" md-colors="{ background: 'grey-A100' }">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+
+<div class="app" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-show="id" ng-repeat="service in services track by service.id" md-colors="{ background: 'grey-A100' }">
+    <div layout="row" layout-align="center center">
+        <h2 class="md-headline" flex>{{ service.id }}</h2>
+        <p class="t-r t-sm" ng-show="service.domain">Продлен до {{ service.domain.expire | date:'yyyy-MM-dd' }}</p>
+    </div>
+    <md-divider ng-if="!$last" hide-gt-xs></md-divider>
+</div>
